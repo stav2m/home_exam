@@ -9,7 +9,8 @@ const rules = {
             return 'Field ' + field + ' already exists';
         },
         validate(value, args) {
-            return !args.productsIds.includes(Number(value)) && args.id !== Number(value);
+            debugger
+            return !args.productsIds.includes(Number(value)) || args.id == value;
         }
     },
     positiveNumber: {

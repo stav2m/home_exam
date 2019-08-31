@@ -9,7 +9,7 @@ function getDateData(val:string){
     return {day:day, month:month, year:year};
 };
 
-Vue.filter("dayMonthYear", function (val:string,  seperator = '/') {
+Vue.filter("dayMonthYear", function (val:string,  seperator:string = '/') { 
     const dateData = getDateData(val);
     return `${dateData.day}${seperator}${dateData.month}${seperator}${dateData.year.substr(-2)}`;
 });
