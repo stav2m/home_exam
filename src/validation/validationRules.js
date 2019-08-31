@@ -9,7 +9,6 @@ const rules = {
             return 'Field ' + field + ' already exists';
         },
         validate(value, args) {
-            debugger
             return !args.productsIds.includes(Number(value)) || args.id == value;
         }
     },

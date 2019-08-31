@@ -1,7 +1,9 @@
 <template>
     <div class="productDetails">
         <div class="name">{{currentProduct.name}} details</div>
-        <img class="pic":src="currentProduct.url"/>
+        <div class="imgContainer">
+            <img class="pic":src="currentProduct.url"/>
+        </div>
 
         <form @submit.prevent="submit">
             <base-input label="ID:" 

@@ -1,6 +1,5 @@
 <template>
-  <div class="container">
-
+<div>
     <div class="manageOptions">
       <button class="filterOption btn">+ Add</button>
       <div class="filterOption searchWrapper">
@@ -23,23 +22,27 @@
         </select>
       </div>
     </div>
+    <div class="container">
 
-    <div class="leftSide">  
-      <div class="productContainer">
-        <ul class="products">
-          <li v-for="product in currentPageProducts" v-if="currentPageProducts">
-            <product :product="product" @select="changeCurrent"/>
-          </li>
-          
-        </ul>
+      <div class="leftSide">  
+        <div class="productContainer">
+          <ul class="products">
+            <li v-for="product in currentPageProducts" v-if="currentPageProducts">
+              <product :product="product" @select="changeCurrent"/>
+            </li>
+            
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="rightSide" v-if="currentProduct">
-      <div>
-        <product-details v-bind="currentProduct" :products="filteredList" @submit="submit" :key="currentProduct.id"/>
+      <div class="rightSide" v-if="currentProduct">
+        <div>
+          <product-details v-bind="currentProduct" :products="filteredList" @submit="submit" :key="currentProduct.id"/>
+        </div>
       </div>
-    </div>
+
+      <success-modal @close="showModal = false" v-show="showModal" :productName="savedProduct"/>    
+    </div>  
 
     <paginate
       v-model="currentPage"
@@ -48,8 +51,6 @@
       :next-text="'Next Page >'"
       :container-class="'paginationContainer'">
     </paginate> 
-
-    <success-modal @close="showModal = false" v-show="showModal" :productName="savedProduct"/>    
   </div>
 </template>
 
